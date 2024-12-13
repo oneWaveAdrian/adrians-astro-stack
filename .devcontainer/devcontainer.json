@@ -1,0 +1,28 @@
+{
+  "name": "Bun & Astro",
+  "dockerFile": "Dockerfile",
+  "forwardPorts": [4321],
+  "portsAttributes": {
+    "4321": {
+      "label": "Astro",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postCreateCommand": "bun i --frozen-lockfile && bun lefthook install",
+  "postStartCommand": "nohup bash -c 'bunx --bun astro dev &'",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "astro-build.astro-vscode",
+        "oven.bun-vscode",
+        "biomejs.biome",
+        "eamodio.gitlens",
+        "PKief.material-icon-theme",
+        "bradlc.vscode-tailwindcss",
+        "redhat.vscode-yaml",
+        "ms-playwright.playwright",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+}
