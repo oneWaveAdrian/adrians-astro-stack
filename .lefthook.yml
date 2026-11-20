@@ -1,5 +1,6 @@
 pre-commit:
-  commands:
-    check:
-      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,astro}"
-      run: bun lint:fix
+  jobs:
+    - name: biome
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,astro,vue,css}"
+      run: bun run lint:fix
+      stage_fixed: true

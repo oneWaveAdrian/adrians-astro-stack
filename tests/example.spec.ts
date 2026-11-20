@@ -1,20 +1,25 @@
 import { expect, test } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test('renders the home page', async ({ page }) => {
+  await page.goto('/');
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+  await expect(page).toHaveTitle('Astro Basics');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(
+    'src/pages'
+  );
 });
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test('hydrates the Vue island styled with Tailwind', async ({ page }) => {
+  await page.goto('/');
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+  const button = page.getByRole('button', { name: 'Clicked 0 times' });
+  await expect(button).toBeVisible();
 
-  // Expects page to have a heading with the name of Installation.
+  // Tailwind utility `bg-indigo-600` must be applied
+  await expect(button).not.toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+
+  await button.click();
   await expect(
-    page.getByRole('heading', { name: 'Installation' })
+    page.getByRole('button', { name: 'Clicked 1 times' })
   ).toBeVisible();
 });

@@ -10,7 +10,7 @@ updates:
     schedule:
       interval: "monthly"
     commit-message:
-      prefix: "deps"      
+      prefix: "deps"
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-patch"]
@@ -19,5 +19,5 @@ updates:
       minor-updates:
         patterns:
           - "*"
-        update-types: 
+        update-types:
           - minor

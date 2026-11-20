@@ -19,6 +19,7 @@
         "eamodio.gitlens",
         "PKief.material-icon-theme",
         "bradlc.vscode-tailwindcss",
+        "vue.volar",
         "redhat.vscode-yaml",
         "ms-playwright.playwright",
         "ms-azuretools.vscode-docker"
